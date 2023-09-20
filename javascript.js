@@ -35,5 +35,7 @@ let addButton = document.querySelector('#add')
 let subtractButton = document.querySelector('#subtract')
 let equalButton = document.querySelector('#equal')
 let calcScreen = document.querySelector('#screen')
+let buttons = document.querySelectorAll('.button')
 
-calcScreen.textContent = "1+2=5"
+buttons.forEach(button => button.addEventListener('click', e => console.log(e.target.innerText)))
+//addEventListener('click', e => console.log(e))
