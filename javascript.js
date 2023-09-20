@@ -34,4 +34,6 @@ let multipleButton = document.querySelector('#multiple')
 let addButton = document.querySelector('#add')
 let subtractButton = document.querySelector('#subtract')
 let equalButton = document.querySelector('#equal')
-let screen = document.querySelector('#screen')
+let calcScreen = document.querySelector('#screen')
+
+calcScreen.textContent = "1+2=5"
