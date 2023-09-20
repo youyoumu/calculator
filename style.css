@@ -30,7 +30,9 @@ body {
 }
 
 #screen {
-    height: 162.5px;
+    /*height: 162.5px;*/
+    height: 140px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .button {
@@ -59,4 +61,9 @@ body {
 #screen {
     background-color: #eee6ff; 
     border-radius: 8px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    font-size: 48px;
+    padding: 15px;
 }
