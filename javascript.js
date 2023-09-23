@@ -37,7 +37,7 @@ let multipleButton = document.querySelector('#multiple');
 let addButton = document.querySelector('#add');
 let subtractButton = document.querySelector('#subtract');
 let equalButton = document.querySelector('#equal');
-let calcScreen = document.querySelector('#screen');
+let calcScreen = document.querySelector('#screenText');
 let buttons = document.querySelectorAll('.button');
 
 buttons.forEach(button => button.addEventListener('click', runOnClick));

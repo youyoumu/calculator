@@ -30,8 +30,7 @@ body {
 }
 
 #screen {
-    /*height: 162.5px;*/
-    height: 140px;
+    height: 162.5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -64,6 +63,15 @@ body {
     display: flex;
     justify-content: end;
     align-items: end;
+}
+
+#screenText {
+    word-wrap: break-word;
     font-size: 48px;
     padding: 15px;
+    border-style: dashed;
+    width: 315px;
+    text-align: end;
+    max-height: 130px;
+    overflow: hidden;
 }
