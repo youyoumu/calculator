@@ -4,7 +4,7 @@ function multiply(a, b)  {return a * b;};
 function divide(a, b)    {return a / b;};
 
 let firstNumber = [];
-let secondNumber;
+let secondNumber = [];
 let operator;
 let operatorList = ["+", "−", "×", "÷", "^", "√"];
 
@@ -42,22 +42,27 @@ buttons.forEach(button => button.addEventListener('click', runOnClick));
 
 function runOnClick(e) {
     let buttonValue = parseInt(e.target.innerText);
-    if(Number.isInteger(buttonValue)) {
-        firstNumber.push(buttonValue);
-        showOnDisplay(firstNumber)
+    if(Number.isInteger(buttonValue) && operator != null){
+        secondNumber.push(buttonValue);
+        showOnDisplay(secondNumber);
     }
-    if(e.target.innerText === ".") {
-        if(firstNumber.includes(".")) {return;}
-        firstNumber.push(".")
+    else if(Number.isInteger(buttonValue)) {
+        firstNumber.push(buttonValue);
         showOnDisplay(firstNumber);
     }
-    if(operatorList.includes(e.target.innerText)) {
+    else if(e.target.innerText === ".") {
+        if(firstNumber.includes(".")) {return;}
+        firstNumber.push(".");
+        showOnDisplay(firstNumber);
+    }
+    else if(operatorList.includes(e.target.innerText)) {
         operator = e.target.innerText;
         showOnDisplay(operator);
     }
 }
 
 function showOnDisplay(text) {
-    if(operator != null) {calcScreen.textContent = operator}
+    if(secondNumber.length != 0) {calcScreen.textContent = secondNumber.join('')}
+    else if(operator != null) {calcScreen.textContent = operator}
     else {calcScreen.textContent = text.join('')}
 }
