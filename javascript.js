@@ -9,10 +9,10 @@ let operator;
 let operatorList = ["+", "−", "×", "÷", "^", "√"];
 
 function operate(firstNumber, secondNumber, operator) {
-    if(operator === "+") {return add(firstNumber, secondNumber);};
-    if(operator === "-") {return subtract(firstNumber, secondNumber);};
-    if(operator === "*") {return multiply(firstNumber, secondNumber);};
-    if(operator === "/") {return divide(firstNumber, secondNumber);};
+    if (operator === "+") {return add(firstNumber, secondNumber);};
+    if (operator === "-") {return subtract(firstNumber, secondNumber);};
+    if (operator === "*") {return multiply(firstNumber, secondNumber);};
+    if (operator === "/") {return divide(firstNumber, secondNumber);};
 };
 
 let button1 = document.querySelector('#button1')
@@ -42,27 +42,27 @@ buttons.forEach(button => button.addEventListener('click', runOnClick));
 
 function runOnClick(e) {
     let buttonValue = parseInt(e.target.innerText);
-    if(Number.isInteger(buttonValue) && operator != null){
+    if (Number.isInteger(buttonValue) && operator != null){
         secondNumber.push(buttonValue);
         showOnDisplay(secondNumber);
     }
-    else if(Number.isInteger(buttonValue)) {
+    else if (Number.isInteger(buttonValue)) {
         firstNumber.push(buttonValue);
         showOnDisplay(firstNumber);
     }
-    else if(e.target.innerText === ".") {
+    else if (e.target.innerText === ".") {
         if(firstNumber.includes(".")) {return;}
         firstNumber.push(".");
         showOnDisplay(firstNumber);
     }
-    else if(operatorList.includes(e.target.innerText)) {
+    else if (operatorList.includes(e.target.innerText)) {
         operator = e.target.innerText;
         showOnDisplay(operator);
     }
 }
 
 function showOnDisplay(text) {
-    if(secondNumber.length != 0) {calcScreen.textContent = secondNumber.join('')}
-    else if(operator != null) {calcScreen.textContent = operator}
+    if (secondNumber.length != 0) {calcScreen.textContent = secondNumber.join('')}
+    else if (operator != null) {calcScreen.textContent = operator}
     else {calcScreen.textContent = text.join('')}
 }
