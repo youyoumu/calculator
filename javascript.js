@@ -85,6 +85,7 @@ function runOnClick(e) {
             calculate();
             operator = e.target.innerText;
             showOnDisplay(operator);
+            calcScreen.textContent = firstNumber.join('');
         };    
     }
     else if (e.target.innerText === "=") {
