@@ -5,6 +5,7 @@ function divide(a, b)    {return a / b;};
 
 let firstNumber = [];
 let secondNumber = [];
+let result;
 let operator;
 let operatorList = ["+", "−", "×", "÷", "^", "√"];
 
@@ -55,7 +56,7 @@ function runOnClick(e) {
             if (secondNumber.includes(".")) {return}
             else {
                 secondNumber.push(".");
-                showOnDisplay()
+                showOnDisplay();
             };
         }
         else {
@@ -63,18 +64,38 @@ function runOnClick(e) {
             else {
                 firstNumber.push(".");
                 showOnDisplay(firstNumber);
-            }
-        }
+            };
+        };
         
     }
     else if (operatorList.includes(e.target.innerText)) {
         operator = e.target.innerText;
         showOnDisplay(operator);
     }
+    else if (e.target.innerText === "=") {
+        if (secondNumber.length === 0) {return;}
+        if (operator = "+") {
+            result = add(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+            showOnDisplay();
+        }
+    }
+    else if (e.target.innerText === "AC") {
+        firstNumber.length = 0;
+        secondNumber.length = 0;
+        operator = null;
+        calcScreen.textContent = "";
+    }
 }
 
 function showOnDisplay(text) {
-    if (secondNumber.length != 0) {calcScreen.textContent = secondNumber.join('')}
-    else if (operator != null) {calcScreen.textContent = operator}
-    else {calcScreen.textContent = text.join('')}
+    if (result != null) {
+        firstNumber = result.toString().split("");
+        calcScreen.textContent = firstNumber.join('');
+        secondNumber.length = 0;
+        operator = null;
+        result = null;
+    }
+    else if (secondNumber.length != 0) {calcScreen.textContent = secondNumber.join('');}
+    else if (operator != null) {calcScreen.textContent = operator;}
+    else {calcScreen.textContent = firstNumber.join('');};
 }
