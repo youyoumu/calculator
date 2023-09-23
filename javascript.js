@@ -3,7 +3,7 @@ function subtract(a, b)  {return a - b;};
 function multiply(a, b)  {return a * b;};
 function divide(a, b)    {return a / b;};
 
-let firstNumber;
+let firstNumber = [];
 let secondNumber;
 let operator;
 
@@ -37,5 +37,17 @@ let equalButton = document.querySelector('#equal')
 let calcScreen = document.querySelector('#screen')
 let buttons = document.querySelectorAll('.button')
 
-buttons.forEach(button => button.addEventListener('click', e => console.log(e.target.innerText)))
-//addEventListener('click', e => console.log(e))
+buttons.forEach(button => button.addEventListener('click', runOnClick));
+
+function runOnClick(e) {
+    let buttonValue = parseInt(e.target.innerText);
+    if(Number.isInteger(buttonValue)) {
+        firstNumber.push(buttonValue);
+        console.log(firstNumber);
+        showOnDisplay(firstNumber)
+    }
+}
+
+function showOnDisplay(text) {
+    calcScreen.textContent = text.join('')
+}
