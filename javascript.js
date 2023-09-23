@@ -80,30 +80,16 @@ function runOnClick(e) {
         else {
             operator = e.target.innerText;
             showOnDisplay(operator);
-        }    
+        }
+        if (secondNumber.length != 0) {
+            calculate();
+            operator = e.target.innerText;
+            showOnDisplay(operator);
+        };    
     }
     else if (e.target.innerText === "=") {
         if (secondNumber.length === 0) {return;}
-        if (operator === "+") {
-            result = add(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
-            showOnDisplay();
-        }
-        if (operator === "−") {
-            result = subtract(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
-            showOnDisplay();
-        }
-        if (operator === "×") {
-            result = multiply(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
-            showOnDisplay();
-        }
-        if (operator === "÷") {
-            result = divide(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
-            showOnDisplay();
-        }
-        if (operator === "^") {
-            result = power(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
-            showOnDisplay();
-        }
+        calculate();
     }
     else if (e.target.innerText === "AC") {
         firstNumber.length = 0;
@@ -134,4 +120,27 @@ function showOnDisplay() {
     else if (secondNumber.length != 0) {calcScreen.textContent = secondNumber.join('');}
     else if (operator != null) {calcScreen.textContent = operator;}
     else {calcScreen.textContent = firstNumber.join('');};
+}
+
+function calculate() {
+    if (operator === "+") {
+        result = add(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+        showOnDisplay();
+    }
+    if (operator === "−") {
+        result = subtract(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+        showOnDisplay();
+    }
+    if (operator === "×") {
+        result = multiply(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+        showOnDisplay();
+    }
+    if (operator === "÷") {
+        result = divide(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+        showOnDisplay();
+    }
+    if (operator === "^") {
+        result = power(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+        showOnDisplay();
+    }
 }
