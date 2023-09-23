@@ -6,6 +6,7 @@ function divide(a, b)    {return a / b;};
 let firstNumber = [];
 let secondNumber;
 let operator;
+let operatorList = ["+", "−", "×", "÷", "^", "√"];
 
 function operate(firstNumber, secondNumber, operator) {
     if(operator === "+") {return add(firstNumber, secondNumber);};
@@ -49,6 +50,9 @@ function runOnClick(e) {
         if(firstNumber.includes(".")) {return;}
         firstNumber.push(".")
         showOnDisplay(firstNumber);
+    }
+    if(operatorList.includes(e.target.innerText)) {
+        console.log(e.target.innerText);
     }
 }
 
