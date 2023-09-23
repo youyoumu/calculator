@@ -69,13 +69,34 @@ function runOnClick(e) {
         
     }
     else if (operatorList.includes(e.target.innerText)) {
-        operator = e.target.innerText;
-        showOnDisplay(operator);
+        if (e.target.innerText === "√") {
+            if (secondNumber.length === 0 && operator === null) {
+                result = Math.sqrt(parseFloat(firstNumber.join('')));
+                showOnDisplay();
+            }
+            else {return};
+        }
+        else {
+            operator = e.target.innerText;
+            showOnDisplay(operator);
+        }    
     }
     else if (e.target.innerText === "=") {
         if (secondNumber.length === 0) {return;}
-        if (operator = "+") {
+        if (operator === "+") {
             result = add(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+            showOnDisplay();
+        }
+        if (operator === "−") {
+            result = subtract(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+            showOnDisplay();
+        }
+        if (operator === "×") {
+            result = multiply(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+            showOnDisplay();
+        }
+        if (operator === "÷") {
+            result = divide(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
             showOnDisplay();
         }
     }
