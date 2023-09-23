@@ -2,6 +2,7 @@ function add(a, b)       {return a + b;};
 function subtract(a, b)  {return a - b;};
 function multiply(a, b)  {return a * b;};
 function divide(a, b)    {return a / b;};
+function power(a, b)     {return a ** b;};
 
 let firstNumber = [];
 let secondNumber = [];
@@ -99,6 +100,10 @@ function runOnClick(e) {
             result = divide(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
             showOnDisplay();
         }
+        if (operator === "^") {
+            result = power(parseFloat(firstNumber.join('')), parseFloat(secondNumber.join('')));
+            showOnDisplay();
+        }
     }
     else if (e.target.innerText === "AC") {
         firstNumber.length = 0;
@@ -106,9 +111,19 @@ function runOnClick(e) {
         operator = null;
         calcScreen.textContent = "";
     }
+    else if (e.target.innerText === "⌫") {
+        if (secondNumber.length != 0) {
+            secondNumber.pop();
+            showOnDisplay();
+        }
+        else {
+            firstNumber.pop();
+            showOnDisplay();
+        }
+    }
 }
 
-function showOnDisplay(text) {
+function showOnDisplay() {
     if (result != null) {
         firstNumber = result.toString().split("");
         calcScreen.textContent = firstNumber.join('');
