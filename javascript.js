@@ -52,10 +52,12 @@ function runOnClick(e) {
         showOnDisplay(firstNumber);
     }
     if(operatorList.includes(e.target.innerText)) {
-        console.log(e.target.innerText);
+        operator = e.target.innerText;
+        showOnDisplay(operator);
     }
 }
 
 function showOnDisplay(text) {
-    calcScreen.textContent = text.join('')
+    if(operator != null) {calcScreen.textContent = operator}
+    else {calcScreen.textContent = text.join('')}
 }
