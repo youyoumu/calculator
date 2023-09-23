@@ -43,8 +43,12 @@ function runOnClick(e) {
     let buttonValue = parseInt(e.target.innerText);
     if(Number.isInteger(buttonValue)) {
         firstNumber.push(buttonValue);
-        console.log(firstNumber);
         showOnDisplay(firstNumber)
+    }
+    if(e.target.innerText === ".") {
+        if(firstNumber.includes(".")) {return;}
+        firstNumber.push(".")
+        showOnDisplay(firstNumber);
     }
 }
 
